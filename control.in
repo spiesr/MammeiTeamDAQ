@@ -1,0 +1,43 @@
+#This is a parameter file for the experiment that will allow us to change
+#any parameters that we want to on the fly without recompiling.
+
+#Duration of the run
+RUN_DURATION 0xA
+
+#Base address for the V1495 Scaler
+LVDS_BASE_ADDR 0xEEEE0000
+#G1 is in test mode, NIM levels, external trigger, reset counts on trigger
+#LVDS_ACQ_CTRL 0x69
+#Standard DAQ mode, NIM levels, external trigger, reset counts on trigger
+#LVDS_ACQ_CTRL 0x79
+#NIM levels, external trigger, reset counts on trigger, G1 is inhibit
+LVDS_ACQ_CTRL 0x49
+#All counters on in A
+#LVDS_A_MASK 0xFFFFFFFF
+#Only the first 16 counters turned on in A
+LVDS_A_MASK 0x0000FFFF
+#All counters off in B
+LVDS_B_MASK 0x00000000
+LVDS_DWELL_TIME 0x0
+
+QADC_BASE_ADDR 0x11110000
+QADC_THRESHOLD 0x1
+QADC_PEDESTAL 0xB4
+
+#base address for V812 discriminator
+V812_BASE_ADDR 0xCABF0000
+#Turn on channels 0 and 7 and set thresholds and MAJ level
+V812_PATTERN_INHIBIT 0x80
+#V812_THRESH_0 0x32
+V812_THRESH_7 0xFF
+V812_MAJ_THRESH 0x13
+V812_OUTPUT_WIDTH 0xB4
+
+#base address for V895 discriminator
+V895_BASE_ADDR 0xFBAC0000
+#Turn on channels 0 and 7 and set thresholds and MAJ level
+V895_PATTERN_INHIBIT 0x81
+V895_THRESH_0 0x32
+V895_THRESH_7 0x32
+V895_MAJ_THRESH 0x1F
+#V895_OUTPUT_WIDTH 0x

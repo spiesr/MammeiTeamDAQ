@@ -1,0 +1,17 @@
+CC = gcc
+#FLAGS = -WALL -g3
+FLAGS = -g3 -Wall -s
+DEPLIBS = -l CAENVME -l curses
+INCLUDEDIR = -I.
+#OBJECTS = main.o files.o lvds.0
+OBJECTS = main.o files.o
+COPTS   =       -fPIC -DLINUX -Wall
+
+%.o: %.c
+	$(CC) $(FLAGS) $(COPTS) $(INCLUDEDIR) -c -o $@ $<
+
+tests: $(OBJECTS)
+	$(CC) $(FLAGS) $(OBJECTS) -o $@ $(DEPLIBS)
+
+clean:
+	rm -rf *.o tests

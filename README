@@ -1,0 +1,27 @@
+Program written by: Ryan Spies
+
+This is an alternate DAQ program that just directly writes data from the DAQ VME boards into a file. This allows us to quickly verify data structures, and to help us diagnose any problems we have with MIDAS.
+
+control.in: stores VME board settings in a form that can be read with the functions in files.c
+
+files.c: a library for functions that read from the control card
+
+lvds.c: a library for functions specific to the V1495 LVDS scaler
+
+fadc.c: a library for functions specific to the V1720E/V1724 FADC
+
+frontend.c: main code file for the alternate DAQ
+
+main.c: a main code file for testing functions on a function-by-function basis before implementation into the frontend program
+
+To make the frontend executable, make sure the Makefile is the same as Makefile.CAEN, and then simply type make to create the executable
+
+To make test executables, make sure the Makefile is the same as Makefile.tests
+
+There are also a few scripts in here:
+
+analyzer.py: a basic analyzer script (does not work on zprime because the pyROOT wrapper is not installed on that system)
+
+log.py: a basic logwriter to keep track of what run tested what
+
+run_daq.sh: a shell script for running the DAQ. In order for this to work and not overwrite any data files or log files it's important that the counter in lastrun.in never be modified by anything other than this script.
