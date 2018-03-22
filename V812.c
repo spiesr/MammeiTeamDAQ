@@ -1,3 +1,5 @@
+//Author: Ryan Spies
+
 #include <string.h>
 //#include <starg.h>
 #include <math.h>
